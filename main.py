@@ -4,10 +4,12 @@ from fastapi import FastAPI
 from core.database import database
 from routers.products import product_router
 from core.config import API_V1
+from routers.users import user_router
 
 app = FastAPI()
 
 app.include_router(product_router, prefix=f"{API_V1}", tags=["Product Routes"])
+app.include_router(user_router, prefix=f"{API_V1}", tags=["User Routes"])
 
 
 @app.get('/')
